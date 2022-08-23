@@ -21,7 +21,8 @@ public class MemoryApplication {
 		while (next == true) {
 			boolean booLevel = true;
 			while (booLevel = true) {
-				Scanner myLevel = new Scanner(System.in);
+//				wybór poziomu
+                Scanner myLevel = new Scanner(System.in);
 				System.out.println("Choose level: Easy/Hard");
 				String scLevel = myLevel.nextLine();
 				if (scLevel.contains("Easy")) {
@@ -50,6 +51,7 @@ public class MemoryApplication {
 					}
 				}
 			}
+//            pobranie pliku wsadowego i przypisanie do listy i ciągu
 			long start = System.currentTimeMillis();
 			Scanner input = new Scanner(new File("./src/Words.txt"));
 			List<String> list1 = new ArrayList<>();
@@ -70,6 +72,7 @@ public class MemoryApplication {
 			for (int i = 0; i < newList.size(); i++) {
 				array[i] = newList.get(i);
 			}
+//            zbudowanie planszy
 			String[][] board = new String[dim1][dim2];
 			for (int row = 0; row < dim1; row++) {
 				for (int column = 0; column < dim2; column++) {
@@ -78,6 +81,7 @@ public class MemoryApplication {
 			}
 			printBoard(board);
 
+//            rozgrywka
 			for (int con = 0; con < efforts; con++) {
 				int stat = 0;
 				chance++;
@@ -106,6 +110,7 @@ public class MemoryApplication {
 				int dim6 = 3;
 				int tempDim1 = 0;
 				int tempDim2 = 0;
+//                pierwszy wybór
 				Scanner myObj = new Scanner(System.in);
 				System.out.println("Choose field");
 				String word1 = myObj.nextLine();
@@ -308,6 +313,7 @@ public class MemoryApplication {
 					stat = 2;
 					printBoard(board);
 				}
+//                drugi wybór
 				Scanner myObj2 = new Scanner(System.in);
 				System.out.println("Choose another field");
 				String word2 = myObj2.nextLine();
@@ -675,6 +681,7 @@ public class MemoryApplication {
 						}
 					}
 				}
+//                wyliczanie wygranej
 				for (int row = 0; row < dim1; row++) {
 					for (int column = 0; column < dim2; column++) {
 						if (board[row][column] == "X") {
@@ -694,6 +701,7 @@ public class MemoryApplication {
 				y = false;
 				x = true;
 			}
+//            komunikaty końcowe
 			System.out.println("Game time: " + (System.currentTimeMillis()/1000 - start/1000 + " seconds"));
 			Scanner myObj3 = new Scanner(System.in);
 			System.out.println("Try again? Yes/No");
@@ -710,6 +718,7 @@ public class MemoryApplication {
 		}
 	}
 
+//    metoda drukowania planszy
 	private static void printBoard (String[][]board){
 		List<String> listTable = Arrays.asList("A", "B", "C", "D");
 		// nagłówki kolumn
